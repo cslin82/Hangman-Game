@@ -1,0 +1,69 @@
+Hangman game pseudocode
+
+HTML
+
+Game play field
+    Score
+    Hangman area
+    Guesses so far
+    Word with blanks
+
+CSS
+    Visible/invisible for hangman pieces
+
+JS
+
+Word list array of strings
+Randomize
+Make word into displayed string
+Find/replace correct guesses?
+
+
+
+initialize variables for
+
+
+Start a new game:
+
+Set wins, losses = 0
+{ Set gueses remaining = 9
+Set player gueses to empty string } or do these only on new play round
+
+Start a new round:
+
+Pick a new random letter
+Reset guesses remaining to 9
+Set player gueses to empty string
+
+Inside round
+
+Listen for keystrokes, convert to guessed letter
+
+If it is not a letter, ignore
+Is it already guessed? Ignore
+
+Is it right? add to correct player guesses
+Is it wrong? append guess to player guesses, add hangman body part
+
+
+Refresh display (all at once?)
+Take values from variables and put them into the id'd spans
+Make a string of player guesses so far from the array
+
+Add hangman body part
+CSS visible or image series?
+
+
+Win condition
+Guessed all letters
+
+Lose condition
+Exhaust guesses
+
+
+
+Steps:
+
+Listen to guesses
+Compare guesses against word (do a "yes is in word/no is not in word")
+Given a word and guesses, make a string of the so-far guesses

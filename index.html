@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,35 @@
 
     <title>Hangman game</title>
 </head>
+
 <body>
-    
+    <h1>Hangman</h1>
+    <div id="game">
+        <p>Guess my word</p>
+        <ul>
+            <li>Wins:
+                <span id="displayWins">.....</span>
+            </li>
+            <li>Losses:
+                <span id="displayLosses">.....</span>
+            </li>
+            <li>Guesses Left:
+                <span id="displayGuessesLeft">.....</span>
+            </li>
+            <li>Your word so far:
+                <span id="guessedWord">.....</span>
+            </li>
+            <li>Your Guesses so far:
+                <span id="displayGuesses">.....</span>
+            </li>
+        </ul>
+
+
+    </div>
+
+
+    <script src="assets/javascript/game.js"></script>
+
 </body>
 
-<script src="assets/javascript/game.js"></script>
 </html>

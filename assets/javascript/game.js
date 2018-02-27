@@ -20,10 +20,20 @@ const gameWordList = ["live",
 "brake", 
 "line"];
 
-var playerGuess;
-var playerGuessesString;
+var playerGuess = '';
+var playerGuesses = "";
 var wins = 0;
 var losses = 0;
+var guessesLeft = 9;
+var currentWord = "";
+
+// get the span elements to display scores
+spanWins = document.getElementById("displayWins");
+spanLosses = document.getElementById("displayLosses");
+spanGuessesLeft = document.getElementById("displayGuessesLeft");
+spanGuessedWord = document.getElementById("guessedWord");
+spanGuesses = document.getElementById("displayGuesses");
+
 
 function randomWord(wordList) {
     var index = Math.floor(Math.random()*wordList.length);
@@ -53,4 +63,15 @@ function guessesToString(guesses) {
     }
     return guessString.toUpperCase();
  
+}
+
+function updateGameBoard() {
+    spanWins.innerHTML = wins;
+        spanLosses.innerHTML = losses;
+        spanGuessesLeft.innerHTML = guessesLeft;
+        spanGuessedWord.innerHTML = wordToString(currentWord, playerGuesses);
+        // spanGuessedWord.innerHTML = "guessed word goes here"; // wordToString(word, guesses);
+        spanGuesses.innerHTML = guessesToString(playerGuesses);
+        // spanGuesses.innerHTML = "guesses go here"; // guessesToString(guesses);
+        
 }

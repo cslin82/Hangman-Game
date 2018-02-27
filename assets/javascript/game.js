@@ -1,5 +1,24 @@
 // starting variables
-const wordList = [];
+const gameWordList = ["live", 
+"aromatic", 
+"heavenly", 
+"whole", 
+"force", 
+"dogs", 
+"erratic", 
+"abnormal", 
+"magical", 
+"swift", 
+"psychotic", 
+"pointless", 
+"reaction", 
+"narrow", 
+"channel", 
+"near", 
+"mute", 
+"flagrant", 
+"brake", 
+"line"];
 
 var playerGuess;
 var playerGuessesString;
@@ -14,13 +33,24 @@ function randomWord(wordList) {
 function wordToString(word, guesses) {
     var gameString = "";
     for (var j = 0; j < word.length; j++) {
-        if (word.indexOf(guesses) <= 0) {
+        if (guesses.indexOf(word[j]) === -1) {
             gameString += "_";
         } else {
             gameString += word[j];
         }
         gameString += " ";
-           
     }
-    return gameString;
+    return gameString.toUpperCase();
+}
+
+function guessesToString(guesses) {
+    var guessString = "";
+    for (var k = 0; k < guesses.length; k++) {
+        guessString += guesses[k];
+        if (k < guesses.length-1) {
+            guessString += ', '
+        }
+    }
+    return guessString.toUpperCase();
+ 
 }

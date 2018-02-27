@@ -34,12 +34,13 @@ spanGuessesLeft = document.getElementById("displayGuessesLeft");
 spanGuessedWord = document.getElementById("guessedWord");
 spanGuesses = document.getElementById("displayGuesses");
 
-
+// Select a word from the given list
 function randomWord(wordList) {
     var index = Math.floor(Math.random()*wordList.length);
     return wordList[index];
 }
 
+// Format target word to have blanks for unguessed letters, uppercase and spaces
 function wordToString(word, guesses) {
     var gameString = "";
     for (var j = 0; j < word.length; j++) {
@@ -53,10 +54,12 @@ function wordToString(word, guesses) {
     return gameString.toUpperCase();
 }
 
+// Formats player guesses (lowercase) to be uppercase and have separating commas
 function guessesToString(guesses) {
     var guessString = "";
     for (var k = 0; k < guesses.length; k++) {
         guessString += guesses[k];
+        // don't add a terminal comma
         if (k < guesses.length-1) {
             guessString += ', '
         }
@@ -65,13 +68,14 @@ function guessesToString(guesses) {
  
 }
 
+// To be called after a player makes a guess
 function updateGameBoard() {
     spanWins.innerHTML = wins;
-        spanLosses.innerHTML = losses;
-        spanGuessesLeft.innerHTML = guessesLeft;
-        spanGuessedWord.innerHTML = wordToString(currentWord, playerGuesses);
-        // spanGuessedWord.innerHTML = "guessed word goes here"; // wordToString(word, guesses);
-        spanGuesses.innerHTML = guessesToString(playerGuesses);
-        // spanGuesses.innerHTML = "guesses go here"; // guessesToString(guesses);
-        
+    spanLosses.innerHTML = losses;
+    spanGuessesLeft.innerHTML = guessesLeft;
+    spanGuessedWord.innerHTML = wordToString(currentWord, playerGuesses);
+    // spanGuessedWord.innerHTML = "guessed word goes here"; // wordToString(word, guesses);
+    spanGuesses.innerHTML = guessesToString(playerGuesses);
+    // spanGuesses.innerHTML = "guesses go here"; // guessesToString(guesses);
+
 }

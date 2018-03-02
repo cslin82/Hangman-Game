@@ -37,6 +37,8 @@ spanGuessesLeft = document.getElementById("displayGuessesLeft");
 spanGuessedWord = document.getElementById("guessedWord");
 spanGuesses = document.getElementById("displayGuesses");
 
+h2Status = document.getElementById("game-status");
+
 // Select a word from the given list
 function randomWord(wordList) {
     var index = Math.floor(Math.random() * wordList.length);
@@ -72,7 +74,7 @@ function guessesToString(guesses) {
         }
     }
     return guessString.toUpperCase();
-    
+
 }
 
 // To be called after a player makes a guess
@@ -84,27 +86,55 @@ function updateGameBoard() {
     // spanGuessedWord.innerHTML = "guessed word goes here"; // wordToString(word, guesses);
     spanGuesses.innerHTML = guessesToString(playerGuesses);
     // spanGuesses.innerHTML = "guesses go here"; // guessesToString(guesses);
-    
+    if (correctGuess) {
+        h2Status.innerHTML = "correct!";
+    } else {
+        h2Status.innerHTML = "not correct yet";
+
+    }
+
 }
 
 function resetGame() {
     currentWord = randomWord(gameWordList);
     playerGuesses = "";
     guessesLeft = 9;
+    // correctGuess = false; // might not need this at all
 }
 
 
 document.onkeyup = function (event) {
-    
+
     // Determines which key was pressed.
     var userGuess = event.key;
-    
+
+    // currently only checks for lowercase letters, rejects uppercase letters
     if ((alphabet.indexOf(userGuess) === -1) || (playerGuesses.indexOf(userGuess) !== -1)) { return 0; }
-    
+
     console.log(userGuess);
     playerGuesses = playerGuesses + userGuess;
     updateGameBoard();
-    
+
+    if (currentWord.indexOf(userGuess) === -1) { 
+        guessesLeft--;
+        updateGameBoard();
+    }
+
+    if (correctGuess) {
+        // alert("you win this round");
+        wins++;
+        updateGameBoard();
+        resetGame();
+        return 0;
+    }
+
+    if (guessesLeft < 1) {
+        losses++;
+        updateGameBoard();
+        h2Status.innerHTML ="the correct word was " + currentWord;
+        resetGame();
+    }
+
     // TODO: detect win and loss conditions, consider separating good and bad guesses
     // consider making intermediate string of filled in guesses to detect win
 };

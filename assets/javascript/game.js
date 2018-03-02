@@ -28,6 +28,7 @@ var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
 var currentWord = "";
+var correctGuess = false; // Admittedly this is not ideal but it apparently works.
 
 // get the span elements to display scores
 spanWins = document.getElementById("displayWins");
@@ -42,12 +43,16 @@ function randomWord(wordList) {
     return wordList[index];
 }
 
+
+
 // Format target word to have blanks for unguessed letters, uppercase and spaces
 function wordToString(word, guesses) {
     var gameString = "";
+    correctGuess = true;
     for (var j = 0; j < word.length; j++) {
         if (guesses.indexOf(word[j]) === -1) {
             gameString += "_";
+            correctGuess = false;
         } else {
             gameString += word[j];
         }

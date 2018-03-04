@@ -80,11 +80,11 @@ function updateGameBoard() {
     spanGuesses.innerHTML = guessesToString(playerGuesses);
     // spanGuesses.innerHTML = "guesses go here"; // guessesToString(guesses);
     if (correctGuess) {
-        h2Status.innerHTML = "correct!";
-    } else {
-        h2Status.innerHTML = "not correct yet";
+        h2Status.innerHTML = "Correct!";
+    } else if (guessesLeft <= 3) {
+        h2Status.innerHTML = "Careful, only " + guessesLeft + " guesses reamin.";
 
-    }
+    } else h2Status.innerHTML = "";
 
 }
 
@@ -92,7 +92,6 @@ function resetGame() {
     currentWord = randomWord(gameWordList);
     playerGuesses = "";
     guessesLeft = 9;
-    // correctGuess = false; // might not need this at all
 }
 
 
@@ -101,14 +100,15 @@ document.onkeyup = function (event) {
     // Determines which key was pressed.
     var userGuess = event.key;
 
-    // currently only checks for lowercase letters, rejects uppercase letters
+    userGuess = userGuess.toLowerCase();
+
     if ((alphabet.indexOf(userGuess) === -1) || (playerGuesses.indexOf(userGuess) !== -1)) { return 0; }
 
     console.log(userGuess);
     playerGuesses = playerGuesses + userGuess;
     updateGameBoard();
 
-    if (currentWord.indexOf(userGuess) === -1) { 
+    if (currentWord.indexOf(userGuess) === -1) {
         guessesLeft--;
         updateGameBoard();
     }
@@ -124,7 +124,7 @@ document.onkeyup = function (event) {
     if (guessesLeft < 1) {
         losses++;
         updateGameBoard();
-        h2Status.innerHTML ="the correct word was " + currentWord;
+        h2Status.innerHTML = "The correct word was " + currentWord + ". Keep guessing to start a new game.";
         resetGame();
     }
 

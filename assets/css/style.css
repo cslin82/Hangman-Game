@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, 'Arial', sans-serif;
+    background-color: #cccccc;
+}
+
+
+
+h1 {
+    font-size: 200%;
+    margin: 1em;
+
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+#title {
+    width: 100%;
+}
+
+#hangmanimages, #game {
+    width: 40%;
+}
+
+#imageCycler {
+    border: 1px solid black;
+}
+
+#guessedWord {
+    font-size: 150%; 
+}

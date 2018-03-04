@@ -31,6 +31,8 @@ spanGuesses = document.getElementById("displayGuesses");
 
 h2Status = document.getElementById("game-status");
 
+hangmanImage = document.getElementById("imageCycler");
+
 // Select a word from the given list
 function randomWord(wordList) {
     var index = Math.floor(Math.random() * wordList.length);
@@ -85,6 +87,8 @@ function updateGameBoard() {
         h2Status.innerHTML = "Careful, only " + guessesLeft + " guesses reamin.";
 
     } else h2Status.innerHTML = "";
+    hangmanImage.src = "assets/images/hangman" + guessesLeft + ".png";
+
 
 }
 
@@ -92,6 +96,7 @@ function resetGame() {
     currentWord = randomWord(gameWordList);
     playerGuesses = "";
     guessesLeft = 9;
+    
 }
 
 

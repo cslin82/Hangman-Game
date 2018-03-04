@@ -9,7 +9,7 @@ resetButton = document.getElementById("buttonReset");
 
 cycleButton.onclick = function () {
     if (guessesLeft >= 0) {
-        hangmanImage.src = "assets/images/hangman" + --guessesLeft + ".png";
+        hangmanImage.src = "assets/images/hangman" + guessesLeft + ".png";
 
     } else {
         guessesLeft = 9;

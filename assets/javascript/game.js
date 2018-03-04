@@ -77,16 +77,17 @@ function updateGameBoard() {
     spanWins.innerHTML = wins;
     spanLosses.innerHTML = losses;
     spanGuessesLeft.innerHTML = guessesLeft;
-    spanGuessedWord.innerHTML = wordToString(currentWord, playerGuesses);
+    spanGuesses.innerHTML = wordToString(alphabet, playerGuesses);
+    spanGuessedWord.innerHTML = wordToString(currentWord, playerGuesses); //calling this last so it properly reflects whether guessed; this is not optimal
     // spanGuessedWord.innerHTML = "guessed word goes here"; // wordToString(word, guesses);
-    spanGuesses.innerHTML = guessesToString(playerGuesses);
+    // spanGuesses.innerHTML = guessesToString(playerGuesses);
     // spanGuesses.innerHTML = "guesses go here"; // guessesToString(guesses);
     if (correctGuess) {
         h2Status.innerHTML = "Correct!";
     } else if (guessesLeft <= 3) {
         h2Status.innerHTML = "Careful, only " + guessesLeft + " guesses reamin.";
 
-    } else h2Status.innerHTML = "";
+    } else h2Status.innerHTML = "&nbsp;";
     hangmanImage.src = "assets/images/hangman" + guessesLeft + ".png";
 
 
@@ -109,8 +110,8 @@ document.onkeyup = function (event) {
 
     if ((alphabet.indexOf(userGuess) === -1) || (playerGuesses.indexOf(userGuess) !== -1)) { return 0; }
 
-    console.log(userGuess);
     playerGuesses = playerGuesses + userGuess;
+    // playerGuesses = playerGuesses.split('').sort().join(''); // can make this selectable/option later
     updateGameBoard();
 
     if (currentWord.indexOf(userGuess) === -1) {

@@ -18,40 +18,46 @@
     <link rel="preload" href="assets/images/hangman2.png" as="image">
     <link rel="preload" href="assets/images/hangman1.png" as="image">
     <link rel="preload" href="assets/images/hangman0.png" as="image">
-    
+
     <title>Hangman game</title>
 </head>
+
 <body>
-    <h1>Hangman</h1>
-    <div id="hangmanimages">
+    <div class="title">
+        <h1>Hangman</h1>
+    </div>
+    <div class="container">
 
-        <img src="assets/images/hangman9.png" alt="" id="imageCycler">
+        <div id="hangmanimages">
+
+            <img src="assets/images/hangman9.png" alt="" id="imageCycler">
+
+        </div>
+        <div id="game">
+            <p>Guess my word</p>
+            <ul>
+                <li>Wins:
+                    <span id="displayWins">.....</span>
+                </li>
+                <li>Losses:
+                    <span id="displayLosses">.....</span>
+                </li>
+                <li>Guesses Left:
+                    <span id="displayGuessesLeft">.....</span>
+                </li>
+                <li>Your word so far:
+                    <span id="guessedWord">.....</span>
+                </li>
+                <li>Your Guesses so far:
+                    <span id="displayGuesses">.....</span>
+                </li>
+            </ul>
+            
+            <h2 id="game-status">.....</h2>
+
+        </div>
 
     </div>
-    <div id="game">
-        <p>Guess my word</p>
-        <ul>
-            <li>Wins:
-                <span id="displayWins">.....</span>
-            </li>
-            <li>Losses:
-                <span id="displayLosses">.....</span>
-            </li>
-            <li>Guesses Left:
-                <span id="displayGuessesLeft">.....</span>
-            </li>
-            <li>Your word so far:
-                <span id="guessedWord">.....</span>
-            </li>
-            <li>Your Guesses so far:
-                <span id="displayGuesses">.....</span>
-            </li>
-        </ul>
-
-        <h2 id="game-status">.....</h2>
-
-    </div>
-
 
     <script src="assets/javascript/game.js"></script>
 

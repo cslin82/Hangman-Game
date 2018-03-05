@@ -21,6 +21,7 @@ var losses = 0;
 var guessesLeft = 9;
 var currentWord = "";
 var correctGuess = false; // Admittedly this is not ideal but it apparently works.
+var gameActive = false;
 
 // get the span elements to display scores
 spanWins = document.getElementById("displayWins");
@@ -83,7 +84,7 @@ function updateGameBoard() {
     // spanGuesses.innerHTML = guessesToString(playerGuesses);
     // spanGuesses.innerHTML = "guesses go here"; // guessesToString(guesses);
     if (correctGuess) {
-        h2Status.innerHTML = "Correct!";
+        h2Status.innerHTML = "Correct! Press spacebar to start a new game.";
     } else if (guessesLeft <= 3) {
         h2Status.innerHTML = "Careful, only " + guessesLeft + " guesses reamin.";
 
@@ -97,7 +98,7 @@ function resetGame() {
     currentWord = randomWord(gameWordList);
     playerGuesses = "";
     guessesLeft = 9;
-    
+    gameActive = false;
 }
 
 
@@ -107,36 +108,50 @@ document.onkeyup = function (event) {
     var userGuess = event.key;
 
     userGuess = userGuess.toLowerCase();
+    // console.log('userGuess: ' + userGuess + " and event.keycode: " + event.keyCode)
 
-    if ((alphabet.indexOf(userGuess) === -1) || (playerGuesses.indexOf(userGuess) !== -1)) { return 0; }
+    if (!gameActive) {
+        if (userGuess === ' ') {
+            gameActive = true;
+            h2Status.innerHTML = "";
+            updateGameBoard();
+            return 0;
+        }
 
-    playerGuesses = playerGuesses + userGuess;
-    // playerGuesses = playerGuesses.split('').sort().join(''); // can make this selectable/option later
-    updateGameBoard();
+    } else {
+        if ((alphabet.indexOf(userGuess) === -1) || (playerGuesses.indexOf(userGuess) !== -1)) { return 0; }
 
-    if (currentWord.indexOf(userGuess) === -1) {
-        guessesLeft--;
+        playerGuesses = playerGuesses + userGuess;
+        // playerGuesses = playerGuesses.split('').sort().join(''); // can make this selectable/option later
         updateGameBoard();
-    }
 
-    if (correctGuess) {
-        // alert("you win this round");
-        wins++;
-        updateGameBoard();
-        resetGame();
-        return 0;
-    }
+        if (currentWord.indexOf(userGuess) === -1) {
+            guessesLeft--;
+            updateGameBoard();
+        }
 
-    if (guessesLeft < 1) {
-        losses++;
-        updateGameBoard();
-        h2Status.innerHTML = "The correct word was " + currentWord + ". Keep guessing to start a new game.";
-        resetGame();
-    }
+        if (correctGuess) {
+            // alert("you win this round");
+            wins++;
+            updateGameBoard();
+            resetGame();
+            return 0;
+        }
 
+        if (guessesLeft < 1) {
+            losses++;
+            updateGameBoard();
+            // this could be moved into the updateGameBoard function
+            h2Status.innerHTML = "The correct word was " + currentWord + ". Press spacebar to start a new game.";
+
+            resetGame();
+        }
+    }
     // TODO: detect win and loss conditions, consider separating good and bad guesses
     // consider making intermediate string of filled in guesses to detect win
 };
 
 resetGame();
 updateGameBoard();
+// only called once, not sure where else to put it without major rewrite
+h2Status.innerHTML = "Press spacebar to start a new game.";

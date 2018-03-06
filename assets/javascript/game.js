@@ -15,7 +15,7 @@ const genericWordList = ["vast", "irritating", "team", "ants", "defeated", "soft
 const texasWordList = ["bluebonnet", "friendship", "Lone Star State", "pecan",
     "mockingbird", "longhorn", "armadillo", "blue lacy", "chili", "cotton",
     "monarch", "buckyball", "jalapeno", "prickly pear cactus",
-    "texas horned lizard", "crape myrtle", "texas sage", "The Friendly State",
+    "texas horned lizard", "crape myrtle", "Texas sage", "The Friendly State",
     "rodeo", "strudel", "sopaipilla", "Houston", "San Antonio", "Dallas",
     "Austin", "Fort Worth", "El Paso", "Arlington", "Corpus Christi", "Plano",
     "Laredo", "Lubbock", "Garland", "Irving", "Amarillo", "Grand Prairie",
@@ -87,12 +87,6 @@ function randomWord(wordList) {
 
 // Format target word to have blanks for unguessed letters, uppercase and spaces
 // Also check for a word being completely guessed
-
-// ** 
-// ** It is not properly being case-insensitive for decrementing guesses 
-// ** 
-
-
 function wordToString(word, guesses) {
     var gameString = "";
     correctGuess = true;

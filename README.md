@@ -15,8 +15,9 @@ See more: [Hangman (game) at Wikipedia](https://en.wikipedia.org/wiki/Hangman_\(
 
 * ~~Add space handling, capitalization in game logic~~
 
-* Clean up logic
+* Clean up logic/code
     * Condense updateGameBoard() calls 
+    * Remove unused function and other code
 * Clean up game board style
     * make long words wrap properly (substitute nbsp and regular spaces)
     * add padding/margin/divs

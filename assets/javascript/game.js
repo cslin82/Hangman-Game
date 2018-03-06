@@ -21,7 +21,36 @@ const texasWordList = ["bluebonnet", "friendship", "lone star state", "pecan",
     "Laredo", "Lubbock", "Garland", "Irving", "Amarillo", "Grand Prairie",
     "Brownsville", "McKinney", "Frisco", "Pasadena", "Mesquite", "Killeen",
     "McAllen", "Carrollton", "Midland", "Waco", "Denton", "Abilene", "Odessa",
-    "Beaumont", "Round Rock"];
+    "Beaumont", "Round Rock",
+    "Alamo", "Blue Bell", "Whataburger", "brisket", "barbecue", 
+    "cowboy", "Guadalupe River", "Brazos River", "Red River", "Rio Grande", "Sabine River"
+    ];
+
+const wmataWordList = ["Addison Road", "Anacostia", "Archives",
+    "Arlington Cemetery", "Ballston MU", "Benning Road", "Bethesda",
+    "Braddock Road", "Branch Avenue", "Brookland CUA",
+    "Capitol Heights", "Capitol South", "Cheverly", "Clarendon", "Cleveland Park",
+    "College Park University of Maryland", "Columbia Heights", "Congress Heights",
+    "Court House", "Crystal City", "Deanwood", "Dunn Loring", "Dupont Circle",
+    "East Falls Church", "Eastern Market", "Eisenhower Avenue", "Farragut North",
+    "Farragut West", "Federal Center SW", "Federal Triangle", "Foggy Bottom GWU",
+    "Forest Glen", "Fort Totten", "Franconia Springfield", "Friendship Heights",
+    "Gallery Place", "Georgia Avenue Petworth", "Glenmont", "Greenbelt",
+    "Greensboro", "Grosvenor Strathmore", "Huntington", "Judiciary Square",
+    "King Street Old Town", "LEnfant Plaza", "Landover", "Largo Town Center",
+    "McLean", "McPherson Square", "Medical Center", "Metro Center",
+    "Minnesota Avenue", "Morgan Boulevard", "Mount Vernon Square",
+    "Navy Yard Ballpark", "Naylor Road", "New Carrollton", "NoMa Gallaudet U",
+    "Pentagon", "Pentagon City", "Potomac Avenue", "Prince Georges Plaza",
+    "Rhode Island Avenue Brentwood", "Rockville",
+    "Ronald Reagan Washington National Airport", "Rosslyn", "Shady Grove",
+    "Shaw Howard University", "Silver Spring", "Smithsonian", "Southern Avenue",
+    "Spring Hill", "Stadium Armory", "Suitland", "Takoma", "Tenleytown AU",
+    "Twinbrook", "Tysons Corner", "U Street", "Union Station", "Van Dorn Street",
+    "Van Ness UDC", "Vienna", "Virginia Square GMU", "Waterfront",
+    "West Falls Church", "West Hyattsville", "Wheaton", "White Flint",
+    "Wiehle Reston East", "Woodley Park"] 
+
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 

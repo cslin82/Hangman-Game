@@ -12,10 +12,10 @@ const genericWordList = ["vast", "irritating", "team", "ants", "defeated", "soft
     "stick", "provide", "periodic", "quixotic", "cave", "distance", "road", "thaw", "water", "decorate", "rabid", "follow", "trot", "suffer",
     "accurate", "touch", "stingy", "pale"];
 
-const texasWordList = ["bluebonnet", "friendship", "lone star state", "pecan",
+const texasWordList = ["bluebonnet", "friendship", "Lone Star State", "pecan",
     "mockingbird", "longhorn", "armadillo", "blue lacy", "chili", "cotton",
     "monarch", "buckyball", "jalapeno", "prickly pear cactus",
-    "texas horned lizard", "crape myrtle", "texas sage", "the friendly state",
+    "texas horned lizard", "crape myrtle", "texas sage", "The Friendly State",
     "rodeo", "strudel", "sopaipilla", "Houston", "San Antonio", "Dallas",
     "Austin", "Fort Worth", "El Paso", "Arlington", "Corpus Christi", "Plano",
     "Laredo", "Lubbock", "Garland", "Irving", "Amarillo", "Grand Prairie",
@@ -87,6 +87,12 @@ function randomWord(wordList) {
 
 // Format target word to have blanks for unguessed letters, uppercase and spaces
 // Also check for a word being completely guessed
+
+// ** 
+// ** It is not properly being case-insensitive for decrementing guesses 
+// ** 
+
+
 function wordToString(word, guesses) {
     var gameString = "";
     correctGuess = true;
@@ -105,18 +111,17 @@ function wordToString(word, guesses) {
 }
 
 // Formats player guesses (lowercase) to be uppercase and have separating commas
-function guessesToString(guesses) {
-    var guessString = "";
-    for (var k = 0; k < guesses.length; k++) {
-        guessString += guesses[k];
-        // don't add a terminal comma
-        if (k < guesses.length - 1) {
-            guessString += ', ' // no terminal comma
-        }
-    }
-    return guessString.toUpperCase();
-
-}
+// function guessesToString(guesses) {
+//     var guessString = "";
+//     for (var k = 0; k < guesses.length; k++) {
+//         guessString += guesses[k];
+//         // don't add a terminal comma
+//         if (k < guesses.length - 1) {
+//             guessString += ', ' // no terminal comma
+//         }
+//     }
+//     return guessString.toUpperCase();
+// }
 
 // To be called after a player makes a guess
 function updateGameBoard() {
@@ -135,9 +140,7 @@ function updateGameBoard() {
         h2Status.innerHTML = "Careful, only " + guessesLeft + " guesses reamin.";
 
     } else h2Status.innerHTML = "&nbsp;";
-    hangmanImage.src = "assets/images/hangman" + guessesLeft + ".png";
-
-
+    hangmanImage.src = "assets/images/hangman" + guessesLeft + ".png"; // an array would be more general
 }
 
 function resetGame() {
@@ -171,7 +174,7 @@ document.onkeyup = function (event) {
         // playerGuesses = playerGuesses.split('').sort().join(''); // can make this selectable/option later
         updateGameBoard();
 
-        if (currentWord.indexOf(userGuess) === -1) {
+        if (currentWord.toLowerCase().indexOf(userGuess) === -1) {
             guessesLeft--;
             updateGameBoard();
         }

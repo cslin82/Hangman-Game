@@ -50,7 +50,8 @@ hangmanImage = document.getElementById("imageCycler");
 // Select a word from the given list
 function randomWord(wordList) {
     var index = Math.floor(Math.random() * wordList.length);
-    return wordList[index].toLowerCase();
+    return wordList[index];
+    // return wordList[index].toLowerCase();
 }
 
 
@@ -94,7 +95,8 @@ function updateGameBoard() {
     spanLosses.innerHTML = losses;
     spanGuessesLeft.innerHTML = guessesLeft;
     spanGuesses.innerHTML = wordToString(alphabet, playerGuesses);
-    spanGuessedWord.innerHTML = wordToString(currentWord, playerGuesses); //calling this last so it properly reflects whether guessed; this is not optimal
+    // spanGuessedWord.innerHTML = wordToString(currentWord, playerGuesses); //calling this last so it properly reflects whether guessed; this is not optimal
+    spanGuessedWord.innerHTML = wordToString(currentWord.toLowerCase(), playerGuesses); //calling this last so it properly reflects whether guessed; this is not optimal
     // spanGuessedWord.innerHTML = "guessed word goes here"; // wordToString(word, guesses);
     // spanGuesses.innerHTML = guessesToString(playerGuesses);
     // spanGuesses.innerHTML = "guesses go here"; // guessesToString(guesses);

@@ -4,8 +4,10 @@
 
 body {
     font-family: 'Helvetica Neue', Helvetica, 'Arial', sans-serif;
-    background-color: #cccccc;
-}
+    background-image:  url('../../assets/images/1784-bluebonnets-faded.jpg');
+    
+    /* background-color: #cccccc; */
+    }
 
 h1 {
     font-size: 200%;
@@ -48,10 +50,12 @@ h2#game-status {
 #game {
     width: 40%;
     padding: 2em;
+    background-color: white;
+    border: 3px solid black;
 }
 
 #imageCycler {
-    border: 1px solid black;
+    border: 3px solid black;
 }
 
 #guessedWord {

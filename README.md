@@ -13,9 +13,14 @@ See more: [Hangman (game) at Wikipedia](https://en.wikipedia.org/wiki/Hangman_\(
 
 ### To-do 
 
+* Add space handling, capitalization in game logic
+
 * Clean up logic
+    * Condense updateGameBoard() calls 
+    * 
 * Clean up game board style
 * Themed game wordlist and styles, switchable game themes with option to keep or reset running score
 * Sounds
 * Start/Reset buttons with event listeners
 * Responsive styling
+

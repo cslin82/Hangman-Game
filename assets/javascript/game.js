@@ -1,5 +1,5 @@
 // starting variables
-const gameWordList = ["vast", "irritating", "team", "ants", "defeated", "soft", "woman", "size", "jump", "alert", "endurable", "invent",
+const genericWordList = ["vast", "irritating", "team", "ants", "defeated", "soft", "woman", "size", "jump", "alert", "endurable", "invent",
     "many", "shade", "distribution", "haircut", "tease", "shiny", "concentrate", "organic", "vase", "book", "like", "kindhearted",
     "innate", "arrogant", "arrange", "blot", "ink", "door", "tedious", "level", "reign", "chemical", "dress", "hollow", "wistful", "tricky",
     "trees", "suggest", "face", "leather", "shy", "wiggly", "spark", "satisfying", "abiding", "abnormal", "time", "head", "amazing", "income",
@@ -12,7 +12,20 @@ const gameWordList = ["vast", "irritating", "team", "ants", "defeated", "soft", 
     "stick", "provide", "periodic", "quixotic", "cave", "distance", "road", "thaw", "water", "decorate", "rabid", "follow", "trot", "suffer",
     "accurate", "touch", "stingy", "pale"];
 
+const texasWordList = ["bluebonnet", "friendship", "lone star state", "pecan",
+    "mockingbird", "longhorn", "armadillo", "blue lacy", "chili", "cotton",
+    "monarch", "buckyball", "jalapeno", "prickly pear cactus",
+    "texas horned lizard", "crape myrtle", "texas sage", "the friendly state",
+    "rodeo", "strudel", "sopaipilla", "Houston", "San Antonio", "Dallas",
+    "Austin", "Fort Worth", "El Paso", "Arlington", "Corpus Christi", "Plano",
+    "Laredo", "Lubbock", "Garland", "Irving", "Amarillo", "Grand Prairie",
+    "Brownsville", "McKinney", "Frisco", "Pasadena", "Mesquite", "Killeen",
+    "McAllen", "Carrollton", "Midland", "Waco", "Denton", "Abilene", "Odessa",
+    "Beaumont", "Round Rock"];
+
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+var gameWordList = texasWordList;
 
 var playerGuess = '';
 var playerGuesses = "";
@@ -37,7 +50,7 @@ hangmanImage = document.getElementById("imageCycler");
 // Select a word from the given list
 function randomWord(wordList) {
     var index = Math.floor(Math.random() * wordList.length);
-    return wordList[index];
+    return wordList[index].toLowerCase();
 }
 
 
@@ -51,6 +64,8 @@ function wordToString(word, guesses) {
         if (guesses.indexOf(word[j]) === -1) {
             gameString += "_";
             correctGuess = false;
+        } else if (word[j] === ' ') {
+            gameString += "&nbsp;"
         } else {
             gameString += word[j];
         }

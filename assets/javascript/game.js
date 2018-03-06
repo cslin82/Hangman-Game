@@ -61,17 +61,17 @@ function wordToString(word, guesses) {
     var gameString = "";
     correctGuess = true;
     for (var j = 0; j < word.length; j++) {
-        if (guesses.indexOf(word[j]) === -1) {
+        if (word[j] === " ") {
+            gameString += "&nbsp;"
+        } else if (guesses.indexOf(word[j]) === -1) {
             gameString += "_";
             correctGuess = false;
-        } else if (word[j] === ' ') {
-            gameString += "&nbsp;"
         } else {
-            gameString += word[j];
+            gameString += word[j].toUpperCase();
         }
         gameString += " ";
     }
-    return gameString.toUpperCase();
+    return gameString;
 }
 
 // Formats player guesses (lowercase) to be uppercase and have separating commas

@@ -7,7 +7,7 @@ If you reach a game end condition (guessing the word correctly or running out of
 
 Each game starts with 9 misses. The image will change as the guesses run down. A warning will appear with 3 or fewer guesses left.
 
-The word list is currently 150 random words from [RandomLists word generator](https://www.randomlists.com/random-words).
+The "generic" word list is currently 150 random words from [RandomLists word generator](https://www.randomlists.com/random-words). The Texas themed word list is the state symbols, the most populous cities, and other random words and foods that made me hungry. The WMATA word list (not yet connected to the HTML) is a list of the stations of the Washington Metro, with the dashes in official names simply changed to spaces.
 
 See more: [Hangman (game) at Wikipedia](https://en.wikipedia.org/wiki/Hangman_\(game\))
 

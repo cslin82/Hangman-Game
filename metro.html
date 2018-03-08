@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style-metro.css">
+
+    <link rel="preload" href="assets/images/hangman9.png" as="image">
+    <link rel="preload" href="assets/images/hangman8.png" as="image">
+    <link rel="preload" href="assets/images/hangman7.png" as="image">
+    <link rel="preload" href="assets/images/hangman6.png" as="image">
+    <link rel="preload" href="assets/images/hangman5.png" as="image">
+    <link rel="preload" href="assets/images/hangman4.png" as="image">
+    <link rel="preload" href="assets/images/hangman3.png" as="image">
+    <link rel="preload" href="assets/images/hangman2.png" as="image">
+    <link rel="preload" href="assets/images/hangman1.png" as="image">
+    <link rel="preload" href="assets/images/hangman0.png" as="image">
+
+    <title>Texas Hangman game</title>
+</head>
+
+<body>
+    <div class="title">
+        <h1>Metro Hangman</h1>
+    </div>
+    <div class="container">
+
+        <div id="hangmanimages">
+
+            <img src="assets/images/hangman9.png" alt="" id="imageCycler">
+
+        </div>
+        <div id="game">
+            <p>Guess my word</p>
+            <ul>
+                <li>Wins:
+                    <span id="displayWins">.....</span>
+                </li>
+                <li>Losses:
+                    <span id="displayLosses">.....</span>
+                </li>
+                <li>Guesses Left:
+                    <span id="displayGuessesLeft">.....</span>
+                </li>
+                <li>Your word so far:</li>
+                <li>
+                    <span id="guessedWord">.....</span>
+                </li>
+                <li>Your Guesses so far:</li>
+                    <li><span id="displayGuesses">.....</span>
+                </li>
+            </ul>
+            
+            <h2 id="game-status">.....</h2>
+</div>
+
+</div>
+
+<!-- Maybe add this functionality later -->
+<!-- <div id="gametype"><form action="">
+        <input type="radio" name="gameType" value="generic" checked> Random<br>
+        <input type="radio" name="gameType" value="female"> Texas<br>
+        <input type="radio" name="gameType" value="metro"> Metro stations
+      </form></div> -->
+
+<script src="assets/javascript/game.js"></script>
+<script>gameWordList = wmataWordList;</script>
+</body>
+
+</html>

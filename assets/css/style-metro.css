@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, 'Arial', sans-serif;
+    background-image:  url('../../assets/images/wmata.png');
+    
+    /* background-color: #cccccc; */
+    }
+
+h1 {
+    font-size: 200%;
+    padding: 1em;
+    text-align: center;
+}
+
+#title { 
+    margin: auto;
+}
+
+h2#game-status { 
+    font-size: 150%;
+    padding: 0.65em;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap; 
+}
+
+#hangmanImage {
+    width: 600px;
+    height: 600px;
+}
+
+#title {
+    width: 100%;
+}
+
+#hangmanimages {
+    min-width: 625px;
+    padding: 2em;
+}
+
+#game {
+    width: 40%;
+    padding: 2em;
+    background-color: white;
+    border: 3px solid black;
+}
+
+#imageCycler {
+    border: 3px solid black;
+}
+
+#guessedWord {
+    font-size: 150%; 
+}
+
+ul {
+    padding: 0.5em;
+}
